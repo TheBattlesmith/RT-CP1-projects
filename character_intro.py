@@ -6,7 +6,4 @@ job = "cyber forensics expert"
 home = "Salt Lake City"
 
 
-print("Hi, my name is, " + alexName) 
-print("I am, ", age, "years old.")
-print("I work as an, " + job)
-print("And I'm from, " + home)
+print(f"Hi, my name is, {alexName} I am, {age} years old. I work as an, {job} And I'm from, {home}")
