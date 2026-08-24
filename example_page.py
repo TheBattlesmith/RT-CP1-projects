@@ -32,7 +32,7 @@ print("we did this on codespace")
     #the fix
 while True:
     try:
-        fav_num = input("what is your favorite number: ")
+        fav_num = int(input("what is your favorite number: "))
     except:
         print("that's not a number")
     else:
