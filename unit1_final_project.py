@@ -14,7 +14,7 @@ home = input(f"{hobby}, eh, can't say I've ever done that before. Where do you l
 
 while True:
     try:
-        age = int(input(f"Never heard of, {home}, before, I'm from somewhere else. How old are you? "))
+        age = int(input(f"Never heard of, {home}, before, I'm from... somewhere else. How old are you? "))
     except:
         print("that's not a number")
 
