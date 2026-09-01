@@ -19,4 +19,5 @@ while True:
 
 average = {float(period1) + (period2) + (period3) + (period4) + (period5) + (period6) + (period7)}
 
-print(f"your overal average grade is: {round(average,2)}")    
+print(f"your overal average grade is: {round(average,2)}")   
+ 
