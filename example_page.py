@@ -38,5 +38,13 @@ while True:
     else:
         break
 print(4 + fav_num)
-        
-        
+
+
+# PEMMDAS - parenthesis, exponents, multiplication, modules, division 
+
+num = 3
+num = num + 2        
+num += 3        
+
+num //= 3
+print(f"after mod{num}")
