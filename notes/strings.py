@@ -1,4 +1,4 @@
-
+#strings: anything in quotation marks. individual characters.
 
 
 sentence = "the quick brown fox jumps over the lazy dog"
