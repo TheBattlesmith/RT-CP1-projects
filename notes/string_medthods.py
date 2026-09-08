@@ -1,4 +1,4 @@
-"""# Notes      question, why is this code bad?
+# Notes      question, why is this code bad?
 # String methods
     # methods do not change your variable it only fixes output unless placed on the variable
     # example function - len(sentence)  len = action sentence = object acted on
@@ -75,7 +75,7 @@ print(sentence.title())
 
 #Step: 0 Result list: [0]
 #Step: 1 Result list: [1]
-#Final output: [1]"""
+#Final output: [1]
 
 
 
