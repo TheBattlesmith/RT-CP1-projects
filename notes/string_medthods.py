@@ -44,7 +44,7 @@ seperated = last_name.split()
 fixed = "".join(seperated)
 last_fixed = "".join(first_seperated)
 
-
+sentence[4:7]
 
 split = (sentence.split())
 
