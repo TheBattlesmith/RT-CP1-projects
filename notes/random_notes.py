@@ -44,7 +44,7 @@ print(pens)
 
 percent = random.random()
 
-print(f"You have a {percent:.2} grade")
+print(f"You have a {percent:.2} grade.") 
 
 
 
