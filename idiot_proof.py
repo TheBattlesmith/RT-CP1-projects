@@ -2,8 +2,10 @@
 
 #name
 
-first_name = input("What is your first name? ").strip().title()
-last_name = input("What is your last name? ").strip().title()
+first_name = (input("What is your first name? "))
+
+
+last_name = input("What is your last name? ")
 
 
 seperate_one = first_name.split()
@@ -11,6 +13,9 @@ seperate_two = last_name.split()
 
 fixed_firstname = "".join(seperate_one).strip().title()
 fixed_lastname = "".join(seperate_two).strip().title()
+
+fixed_lastname.isalpha()
+fixed_firstname.isalpha()
 
 #phone number
 
@@ -39,20 +44,20 @@ final_phone = first_phone + " " + second_phone + " " + third_phone
 
 while True:
     try:
-        gpa_question = int(input("What is your GPA? "))
+        gpa_question = float(input("What is your GPA? "))
     except:
         print("That is not a valid GPA.")
     else:
         break
 
 
-GPA = (round(gpa_question, 2))
+GPA = str(round(gpa_question, 2))
 
 
 
 
-print(final_phone)
+print("Phone number: " + final_phone)
 
-print(fixed_firstname + " " + fixed_lastname)
+print("Name: " + fixed_firstname + " " + fixed_lastname)
 
-print(GPA)
+print("GPA: " + GPA)

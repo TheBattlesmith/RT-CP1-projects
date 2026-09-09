@@ -9,7 +9,7 @@
 
 # Strip function removes white space
 
-
+"""
 sentence = "the quick brown fox jumps over the lazy dog"
 
 
@@ -28,7 +28,7 @@ print(sentence.find("over"))
 word = input("what word do you want: ").strip().lower() #this changes the variable because it's attached
 new_word = input("what word should be in the sentence? ").strip().lower()
 location = sentence.find(word)
-new_sentence = sentence.replace(word, new_word)
+new_sentence = sentence.replace(word, new_word)"""
 
 first_name = input("what is your first name: ").strip().title()
 
@@ -44,11 +44,11 @@ seperated = last_name.split()
 fixed = "".join(seperated)
 last_fixed = "".join(first_seperated)
 
-sentence[4:7]
+"""sentence[4:7]
 
 split = (sentence.split())
 
-print(split)
+print(split)"""
 
 
 full_name = last_fixed.title() + " " + fixed.title()
@@ -62,10 +62,10 @@ print(full_name.isupper()) # checks if the entire thing is uppercase
 # Add strip to all inputs in the future
 
 
-print(sentence.lower())
+"""print(sentence.lower())
 print(sentence.upper())
 print(sentence.capitalize())
-print(sentence.title())
+print(sentence.title())"""
 
 
 # f strings
