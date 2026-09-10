@@ -36,17 +36,17 @@ if option == "d4" or option == "D4":
     print(f"your roll is: {d4}")
 
 
-while option == "d6" or "D6":
+if option == "d6" or option == "D6":
     print(f"your roll is: {d6}")
-    break
+    
 
-while option == "d10" or "D10":
+if option == "d10" or option == "D10":
     print(f"your roll is: {d10}")
-    break
+    
 
-if options == "d12" or "D12":
+if option == "d12" or option == "D12":
     print(f"your roll is: {d12}")
 
-while options == "d20" or "D20":
+if option == "d20" or option == "D20":
     print(f"your roll is: {d20}")
-    break
+    
