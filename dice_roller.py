@@ -1,4 +1,4 @@
-# Roman Torres - dice roller project
+# Roman Torres - dice roller project - first period
 
 import random
 
