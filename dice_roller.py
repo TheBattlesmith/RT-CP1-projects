@@ -15,7 +15,7 @@ d20 = random.randint(1,20)
 options = ["d4", "d6", "d8", "d10", "d12", "d20", "D4", "D6", "D8", "D10", "D12", "D20"]
 while True:
     try:
-        option = input("which size dice do you want to roll? (D4, D6, D10, D12, D20): ")
+        option = input("which size dice do you want to roll? (D4, D6, D8, D10, D12, D20): ")
         if option not in options:
             raise TypeError("that wasn't a choice.")
         else:
