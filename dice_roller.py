@@ -5,13 +5,14 @@ import random
 
 d4 = random.randint(1, 4)
 d6 = random.randint(1,6)
+d8 = random.randint(1,8)
 d10 = random.randint(1,10)
 d12 = random.randint(1,12)
 d20 = random.randint(1,20)
 
 
 
-options = ["d4", "d6", "d10", "d12", "d20", "D4", "D6", "D10", "D12", "D20"]
+options = ["d4", "d6", "d8", "d10", "d12", "d20", "D4", "D6", "D8", "D10", "D12", "D20"]
 while True:
     try:
         option = input("which size dice do you want to roll? (D4, D6, D10, D12, D20): ")
@@ -30,7 +31,8 @@ while True:
 
 
 
-
+if option == "d8" or option == "D8":
+    print(f"your roll is: {d8}")
 
 if option == "d4" or option == "D4":
     print(f"your roll is: {d4}")
