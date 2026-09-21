@@ -14,7 +14,7 @@ while True:
 
 pirates = pirates + 2
 
-plunder = plunder - ((3 * pirates) + 6)
+plunder = plunder - ((3 * pirates) - 6)
 
 yondu_bonus = 0.13 * plunder
 plunder = plunder - (0.13 * plunder)
