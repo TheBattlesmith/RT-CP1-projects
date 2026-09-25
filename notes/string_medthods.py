@@ -89,3 +89,42 @@ number_value += 2
 new_letter = chr(number_value)
 print(f"your letter was {letter} now it is {new_letter}")
 
+active = True
+
+while active == True:
+    if program == 1:
+        ignore = input("You've reached an automated ignoring machine. Ask me anything! I'll ignore you. ").lower()
+        
+
+        if ignore == "ten million bottles of beer on the wall!" or ignore == "ten million bottles of beer on the wall":
+                print("Okay! Okay! Please leave me alone!")
+                print("---The ignoring machine has kicked you out of the server---")
+                break
+        else:
+            print("...")
+
+fbi = random.randint(1,3)
+if fbi == 1:
+    director = "Batman"
+
+if fbi == 2:
+    director = "Fury"
+
+if fbi == 3:
+    director = "JarJar Binks"
+
+
+while active == True:
+    if program == 2:
+        command = input("---You've hacked the fbi main database--- What is your command, director {director}:").lower()
+
+
+        if command == "steal the president's laundry":
+            print("We already did that last Tuesday, anything else.")
+        elif command == "launch the nukes":
+            print("Is this the president hacking in again? Please sir, Iran has had enough!")
+        elif command == "get me an ice cream":
+            print("Yes sir, and don't worry. I'll taste it to make sure there's no poison. \n Oh no, it's poisoned! Well better eat it all since I'm already dead...")
+        
+        else:
+            print("You are not authorized to make that command.")

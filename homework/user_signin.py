@@ -1,9 +1,10 @@
 # Roman Torres, User Sign In, period 1
 
+import random
 
 user_name = ["Miss. LaRose", "roman.torres"]
 
-password_answer = "Beans!"
+
 
 
 
@@ -19,4 +20,22 @@ while True:
         print("that is incorrect. Please try again.")
     else:
         break
-password = input("Please input your password ")
+
+if username == "Miss. LaRose":
+    password_answer = "Beans!"
+
+if username == "roman.torres":
+    password_answer = "Meatloaf!"
+
+while True:
+
+    password = input("Please input your password ")
+    
+    if password_answer == password:
+        print(F"Welcome, {username}.")
+        program = random.randint(1,2)
+        break
+
+    else:
+        print("That is an invalid passcode.") 
+
