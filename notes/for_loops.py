@@ -41,6 +41,8 @@ print(f"The average grade is: {average:.2f}")
 
 # Range builds a list for you, the number inputed tells the code where to stop, the two at the end makes it count by twos.
 
+# to prevent the print statement from starting a new line, print(name, end="")
+
 for i in range(2, 21, 2):
     print(i)
     time.sleep(0.75)
