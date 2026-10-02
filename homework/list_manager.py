@@ -13,9 +13,11 @@ while True:
 
     elif action == "remove":
         remove = input("What would you like to remove: ").title().strip()
-        shop.remove(remove)
-        if remove != shop:
-            print(f"{remove} is not an available item to remove:\n")
+        if remove in shop:
+            shop.remove(remove)
+        else:
+            print("That is not a removable item.")
+
 
     elif action == "show":
         see = set(shop)
