@@ -1,9 +1,11 @@
 # Roman Torres, Multiplication Table, period 1
 
 
-for i in range(1,13):
-    print(i, end = "\t")
-print("\n")
-for i in range(2, 25, 2):
-    print(i, end = "\t")
-    
+
+multiplier = 0
+
+for i in range(1, 13):
+    multiplier += 1
+    for i in range(multiplier, 13 * multiplier + 1, multiplier):
+        print(i, end = "\t")
+    print("\n")
