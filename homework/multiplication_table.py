@@ -2,7 +2,9 @@
 
 
 
-multiplier = 0
+
+
+
 
 for i in range(1, 13):
     multiplier += 1
