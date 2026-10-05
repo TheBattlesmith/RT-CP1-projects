@@ -9,3 +9,4 @@ for i in range(1, 13):
     for i in range(multiplier, 13 * multiplier + 1, multiplier):
         print(i, end = "\t")
     print("\n")
+
