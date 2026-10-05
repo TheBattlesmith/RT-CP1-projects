@@ -1,9 +1,6 @@
 # Roman Torres, Multiplication Table, period 1
 
-
-
-
-
+multiplier = 0
 
 
 for i in range(1, 13):
