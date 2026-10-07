@@ -6,6 +6,9 @@
 
 #The original list used for mapping is never changed — you always end up with two separate lists: the original, and the new transformed one
 
+import math
+
+
 def times(number):
     return number *2
 
@@ -27,3 +30,11 @@ siblings = ["Amaia", "Kayla", "Cersei", "Mercy"]
 
 length = list(map(len, siblings))
 print(*length)
+
+
+def product(complete):
+    return complete * group
+
+group = []
+
+print(math.fractorial(5))
