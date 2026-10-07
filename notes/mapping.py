@@ -22,3 +22,8 @@ for number in numbers:
     new_numbers.append(number*2)
 
 print(*new_numbers)
+
+siblings = ["Amaia", "Kayla", "Cersei", "Mercy"]
+
+length = list(map(len, siblings))
+print(*length)
