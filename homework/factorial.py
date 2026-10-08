@@ -20,6 +20,7 @@ while True:
 
     numbers = []
 
+  
 
     if factorial > 1:
         for i in range(1, factorial):
