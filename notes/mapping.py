@@ -37,4 +37,4 @@ def product(complete):
 
 group = []
 
-print(math.fractorial(5))
+print(math.factorial(5))
