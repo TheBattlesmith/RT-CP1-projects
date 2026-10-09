@@ -13,28 +13,31 @@ while True:
         else:
             break
 
-
+        
     finished = []
 
     finished.append(math.factorial(factorial))
 
     numbers = []
 
-  
+    
+    
+    if factorial == 1:
+        print("1 = 1")
+        
 
-    if factorial > 1:
+
+    elif factorial > 1:
         for i in range(1, factorial):
-            numbers.append(" x ")
+            
             numbers.append(i)
 
-        numbers.pop(0)
-        numbers.append(f" x {factorial}")
-        print(*numbers, end = " \t" )
+        
+        numbers.append(factorial)
 
+        final = " x ".join(map(str, numbers))
+        print(final, end = "\t")
         print(" = ", *finished)
     
-
-
-    elif factorial == 1:
-        print("1 = 1")
-     
+    
+    
