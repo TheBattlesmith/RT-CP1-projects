@@ -79,16 +79,17 @@ while game_on == True:
     
 
     while True:
-        try:
-            turn = int(input("Quick! It’s an intersection! 1 for left 2 for right! "))
-            if turn not in escape:
-                raise TypeError("that wasn't an option")
+        while True:
+            try:
+                turn = int(input("Quick! It’s an intersection! 1 for left 2 for right! "))
+                if turn not in escape:
+                    raise TypeError("that wasn't an option")
+                else:
+                    print(" ")
+            except:
+                print("You can't do that!")
             else:
-                print(" ")
-        except:
-            print("You can't do that!")
-        else:
-            print(" ")
+                break
         find_crow += 1
         if find_crow == scarecrow:
             print(f"As you look over your shoulder, your foot snags on something in the darkness, and you fall, not onto dirt though… you realize you”ve fallen into a wooden, roofless room in the center of the corn maze, a door slams shut behind you, a small window in its center allowing you to see the {monster} bolt up to the door and begin ferociously pounding against it… the wood holds, but it won’t last forever. You need to find a way out of here!")
@@ -101,16 +102,17 @@ while game_on == True:
 
 
     while scr == True:
-        try:
-            hmm = int(input("Will you play the scarecrow's game? \n1 for yes: \n2 for no: "))
-            if hmm not in escape:
-                raise TypeError("that wasn't an option")
+        while True:
+            try:
+                hmm = int(input("Will you play the scarecrow's game? \n1 for yes: \n2 for no: "))
+                if hmm not in escape:
+                    raise TypeError("that wasn't an option")
+                else:
+                    print(" ")
+            except:
+                print("You can't do that!")
             else:
-                print(" ")
-        except:
-            print("You can't do that!")
-        else:
-            print(" ")
+                break
 
         if hmm == 1:
             riddles = True
