@@ -5,6 +5,7 @@ game_on = True
 places = [1, 2, 3 ]
 
 while game_on == True:
+    
     win = False
     chase = False
     scr = False
@@ -72,42 +73,22 @@ while game_on == True:
     time.sleep(1)
     print("The sounds from the circus behind you suddenly go quiet... you turn and realize that the entrance is gone, replaced by a wall of corn stalks...\n")
     print("Then the moon blinks... for a split second everything goes black, but then the light is back...\n\n but now it's red... the scarlet glow illuminates the corn and something else...\n\n")
-    print(f"The {monster} stands only thirty feet from you, eyes glowing red as the moon... it looks at you and grins, revealing a row of sharp teeth.")
+    print(f"The {monster} stands only thirty feet from you, eyes glowing red as the moon... it looks at you and grins, revealing a row of sharp teeth... you run.")
+    
+
+    
 
     while True:
         try:
-            run = int(input("Will you run? \n1 for yes: \n2 for no: "))
-            if run not in escape:
-                raise TypeError("that wasn't an option")
-            else:
-                break
-        except:
-            print("You can't do that!")
-        else:
-            break
-    while True:
-        if run == 1:
-            chase = True
-            break
-        else:
-            print("Are you sure?")
-            death += 1
-            if death == 2:
-                print(f"The {monster} charges... everything fades to black as the {monster} attacks... and you die.")
-                break
-            break
-
-    while chase == True:
-        try:
-            turn = input("Quick! It’s an intersection! 1 for left 2 for right! ")
+            turn = int(input("Quick! It’s an intersection! 1 for left 2 for right! "))
             if turn not in escape:
                 raise TypeError("that wasn't an option")
             else:
-                break
+                print(" ")
         except:
             print("You can't do that!")
         else:
-            break
+            print(" ")
         find_crow += 1
         if find_crow == scarecrow:
             print(f"As you look over your shoulder, your foot snags on something in the darkness, and you fall, not onto dirt though… you realize you”ve fallen into a wooden, roofless room in the center of the corn maze, a door slams shut behind you, a small window in its center allowing you to see the {monster} bolt up to the door and begin ferociously pounding against it… the wood holds, but it won’t last forever. You need to find a way out of here!")
@@ -121,24 +102,62 @@ while game_on == True:
 
     while scr == True:
         try:
-            hmm = input("Will you play the scarecrow's game? \n1 for yes: \n 2 for no: ")
+            hmm = int(input("Will you play the scarecrow's game? \n1 for yes: \n2 for no: "))
             if hmm not in escape:
                 raise TypeError("that wasn't an option")
             else:
-                break
+                print(" ")
+        except:
+            print("You can't do that!")
+        else:
+            print(" ")
+
+        if hmm == 1:
+            riddles = True
+            print("The scarecrow grins even wider, “very well… all I ask is that you answer my question with one word.")
+            scr = False
+        else:
+            scr = False
+
+    while riddles == False:
+        print(f"You stand, looking defiantly at the scarecrow, whose smile grows even wider.\n “very well, ” it whispers, flicking its wrist. \nThe door you’ve just come from unlocks, \nthe {monster} bolts in and lunges for you… everything suddenly goes black… as you die…")
+        break
+
+    while riddles == True:
+        truth = input("I must be broken before you can use me...")
+        if truth == "egg":
+            if SC_chances == 2:
+                print("Hint---I'm as smooth as a river stone...")
+            elif SC_chances == 1:
+                print("Hint---I'm as white as paper...")
+            print(f"\n\nThe scarecrow cackles and tosses you the key to the door. Your sweaty hands almost drop it, but you manage to fit it into the lock. It turns and you bolt out just as the doorway far behind you gives away. You slam the door and lock it,  bolting for the exit that’s finally in your sight! The second your foot touches the finish line, the moon flashes back to white, you turn back and the scarecrow’s clearing is now gone along with the {monster}. You stumble back to your car and drive away, finally safe.\n\n")
+            riddles = False
+        
+        else:
+            print("WRONG ANSWER!!!!")
+            SC_chances -= 1
+
+        if SC_chances == 0:
+            print("YOU FAILED!!!! HA HA HA!!!! The door you’ve just come from unlocks! the {monster} bolts in and lunges for you… everything suddenly goes black… as you die…")
+            riddles = False
+
+    while True:
+        try:
+            done = input("Will you be playing again? \n1 for yes: \n2 for no: ")
+            if hmm not in escape:
+                    raise TypeError("that wasn't an option")
+            else:
+                print(" ")
         except:
             print("You can't do that!")
         else:
             break
 
-        if hmm == 1:
-            riddles = True
-            print("The scarecrow grins even wider, “very well… all I ask is that you answer my question with one word.")
-        else:
-            break
-
-    while riddles == False:
-        print(f"You stand, looking defiantly at the scarecrow, whose smile grows even wider.\n “very well, ” it whispers, flicking its wrist. \nThe door you’ve just come from unlocks, \nthe {monster} bolts in and lunges for you… everything suddenly goes black… as you die…")
-        break
+    if done == 1:
+        print(f"Excellent choice {full_name}")
+    else:
+        print(f"Very well {full_name}... word of advice, don’t bite off more excitement than your little mouth can chew. Come back when you can handle it.")
+        game_on = False
+        
 
 
