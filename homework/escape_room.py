@@ -137,7 +137,7 @@ while game_on == True:
 
 
         if SC_chances == 0:
-            print("YOU FAILED!!!! HA HA HA!!!! The door you’ve just come from unlocks! the {monster} bolts in and lunges for you… everything suddenly goes black… as you die…")
+            print(f"YOU FAILED!!!! HA HA HA!!!! The door you’ve just come from unlocks! the {monster} bolts in and lunges for you… everything suddenly goes black… as you die…")
             riddles = False
         elif SC_chances == 1:
             print("Hint---I'm as white as paper...")
