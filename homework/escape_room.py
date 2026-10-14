@@ -5,7 +5,7 @@ game_on = True
 places = [1, 2, 3 ]
 
 while game_on == True:
-    
+    bark = True
     win = False
     chase = False
     scr = False
@@ -80,7 +80,7 @@ while game_on == True:
 
     while True:
         try:
-            turn = int(input("Quick! It’s an intersection! 1 for left 2 for right! ")).strip()
+            turn = int(input("Quick! It’s an intersection! 1 for left 2 for right! "))
             if turn not in escape:
                 raise TypeError("that wasn't an option")
             else:
@@ -144,24 +144,26 @@ while game_on == True:
         elif SC_chances <= 2:
             print("Hint---I'm as smooth as a river stone...")
 
-
-    while True:
-        try:
-            done = input("\n\nWill you be playing again? \n1 for yes: \n2 for no: ").strip()
-            if hmm not in escape:
+    while bark == True:
+        while True:
+            try:
+                done = int(input("\n\nWill you be playing again? \n1 for yes: \n2 for no: "))
+                if done not in escape:
                     raise TypeError("that wasn't an option")
+                else:
+                    print(" ")
+            except:
+                print("You can't do that!")
             else:
-                print(" ")
-        except:
-            print("You can't do that!")
-        else:
-            break
+                break
+        if done == 1:
+            print(f"Excellent choice {full_name}")
+            bark = False
+        elif done == 2:
+            print(f"Very well {full_name}... word of advice, don’t bite off more excitement than your little mouth can chew. Come back when you can handle it.")
+            game_on = False
+            bark = False
+                    
 
-    if done == 1:
-        print(f"Excellent choice {full_name}")
-    elif done == 2:
-        print(f"Very well {full_name}... word of advice, don’t bite off more excitement than your little mouth can chew. Come back when you can handle it.")
-        game_on = False
-        
 
 
