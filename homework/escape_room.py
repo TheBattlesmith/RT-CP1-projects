@@ -39,7 +39,7 @@ while game_on == True:
 
     full_name = last_fixed.title() + " " + fixed.title()
 
-    print(f"\nHello, {full_name}, and welcome to the circus! \n\nIt's lovey here! only recently the sun has set, and your friends headed out. \nIt's your birthday though, and you figure that you might as well stay a while longer.\nAfter all, there are still three places you haven't visited yet!")
+    print(f"\nHello, {full_name}, and welcome to the circus! \n\nIt's lovely here! only recently the sun has set, and your friends headed out. \nIt's your birthday though, and you figure that you might as well stay a while longer.\nAfter all, there are still three places you haven't visited yet!")
 
     # CHOOSING MAZE CODE
     while True:
@@ -80,7 +80,7 @@ while game_on == True:
 
     while True:
         try:
-            turn = int(input("Quick! It’s an intersection! 1 for left 2 for right! "))
+            turn = int(input("Quick! It’s an intersection! 1 for left 2 for right! ")).strip()
             if turn not in escape:
                 raise TypeError("that wasn't an option")
             else:
@@ -124,26 +124,30 @@ while game_on == True:
         break
 
     while riddles == True:
-        truth = input("I must be broken before you can use me...")
+        truth = input("I must be broken before you can use me...").strip().lower()
+        
+
         if truth == "egg":
-            if SC_chances == 2:
-                print("Hint---I'm as smooth as a river stone...")
-            elif SC_chances == 1:
-                print("Hint---I'm as white as paper...")
             print(f"\n\nThe scarecrow cackles and tosses you the key to the door. Your sweaty hands almost drop it, but you manage to fit it into the lock. It turns and you bolt out just as the doorway far behind you gives away. You slam the door and lock it,  bolting for the exit that’s finally in your sight! The second your foot touches the finish line, the moon flashes back to white, you turn back and the scarecrow’s clearing is now gone along with the {monster}. You stumble back to your car and drive away, finally safe.\n\n")
             riddles = False
-        
+
         else:
             print("WRONG ANSWER!!!!")
             SC_chances -= 1
 
+
         if SC_chances == 0:
             print("YOU FAILED!!!! HA HA HA!!!! The door you’ve just come from unlocks! the {monster} bolts in and lunges for you… everything suddenly goes black… as you die…")
             riddles = False
+        elif SC_chances == 1:
+            print("Hint---I'm as white as paper...")
+        elif SC_chances <= 2:
+            print("Hint---I'm as smooth as a river stone...")
+
 
     while True:
         try:
-            done = input("Will you be playing again? \n1 for yes: \n2 for no: ")
+            done = input("\n\nWill you be playing again? \n1 for yes: \n2 for no: ").strip()
             if hmm not in escape:
                     raise TypeError("that wasn't an option")
             else:
@@ -155,7 +159,7 @@ while game_on == True:
 
     if done == 1:
         print(f"Excellent choice {full_name}")
-    else:
+    elif done == 2:
         print(f"Very well {full_name}... word of advice, don’t bite off more excitement than your little mouth can chew. Come back when you can handle it.")
         game_on = False
         
