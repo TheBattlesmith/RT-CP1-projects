@@ -7,7 +7,7 @@ game = True
 
 while game == True:
     playing = True
-    moves = ["\nTop Left: 1", "\nTop Center: 2", "\nTop Right: 3","\nMiddle Left: 4","\nMiddle Center: 5","\nMiddle Right: 6","\nBottom Left: 7","\nBottom center: 8","\nBottom Right: 9"]
+    moves = ["\nTop Left: 1", "\nTop Center: 2", "\nTop Right: 3","\nMiddle Left: 4","\nMiddle Center: 5","\nMiddle Right: 6","\nBottom Left: 7","\nBottom Center: 8","\nBottom Right: 9"]
     available = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     while playing == True:
         while True:
@@ -37,6 +37,6 @@ while game == True:
         if player1 == 7:
             moves.remove("\nBottom Left: 7")
         if player1 == 8:
-            moves.remove("\nBottom Left: 7")
+            moves.remove("\nBottom Center: 8")
         if player1 == 9:
-            moves.remove("\nBottom Left: 7")
+            moves.remove("\nBottom Right: 9")
