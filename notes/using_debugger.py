@@ -1,3 +1,4 @@
+import random
 # Debugger notes 
 
 # VL, Using the debugger
@@ -52,7 +53,15 @@ print(f"Highest score: {highest_score}")
 
 #Testing with Simple Inputs: try your program with the simplest possible input (like 0, 1, or an empty string) instead of realistic data. Best for narrowing down whether a bug is in your core logic or just an edge case.
 
-#Searching Documentation or the Web: look up the exact error message or function name. Best for unfamiliar errors or when you're not sure a function works the way you think it does.
+#Searching Documentation or the Web: look up the exact error message or function name. Best for unfamiliar errors or when you're not sure a function works the way you think it does. ----(W3schools) IMPORTANT (geeksforgeeks)----
 
 #Asking for Help / Code Review: have a classmate or teacher read your code. Best for when you've tried everything else and are too close to your own code to see the problem — a fresh set of eyes catches things you've stopped noticing.
 
+
+index = random.randint(0,5)
+
+siblings = ["Kayla", "Amaia","Cersei","Mercy","Roman"]
+
+print(siblings[index]) # index must be in the range of siblings
+
+# I can't get you out of the maze if I don't know where you're currently standing
