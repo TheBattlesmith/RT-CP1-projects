@@ -47,14 +47,14 @@ print("Your guesses per round: " + str(scores)) # TypeError - converted scores t
 
 total = 0
 for score in scores:
-    total = 0
+    # LogicError - total was being reset to zero with every runthrough of the code
     total = total + score
 
 average = total / rounds
-print("Your average guesses per round was " + str(round(average, 2))) # LogicError - rounded to two decimal places
+print("Your average guesses per round was " + str(round(average, 2))) # rounded to two decimal places
 
 best_round = scores[0]
-for i in range(1, rounds ): # Logic - delete the minus one ; further testing required
+for i in range(1, len(scores)): # LogicError - we need this to run a number of times equal to the length of the scores list in order to get the actuall number
     if scores[i] < best_round:
         best_round = scores[i]
 
