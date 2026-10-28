@@ -5,9 +5,12 @@ PassStrength = "Horrible"
 
 password = input("What is your password (white space will not be included): ").strip()
 
-final = len(password)+1
 
-p_list = password.split()
+
+
+
+
+
 
 capitals = password.upper()
 small_let = password.lower()
@@ -19,9 +22,20 @@ uppercase = "No"
 integers = "No"
 special = "No"
 
-numbers = [0,1,2,3,4,5,6,7,8,9]
-for i in range[0, final]:
-    
+Sp_char = ["!","@","#","$","%","^","&","*",";",":","-","_","+","=","?","/",".",">","<",","]
+
+
+
+for i in password:
+    if i.isnumeric():
+        integers = "Yes"
+        strength += 1
+        break
+for i in password:
+    if i in Sp_char:
+        special = "Yes"
+        strength += 1
+        break
 
 
 if len(password) >= 8:
