@@ -11,7 +11,6 @@ password = input("What is your password (white space will not be included): ").s
 
 
 
-
 capitals = password.upper()
 small_let = password.lower()
 
@@ -31,6 +30,7 @@ for i in password:
         integers = "Yes"
         strength += 1
         break
+
 for i in password:
     if i in Sp_char:
         special = "Yes"
@@ -63,6 +63,6 @@ if strength == 5:
 
 
 
-print(integers, uppercase, length, lowercase, PassStrength)
+print(f"Integers included: {integers}\nUppercase included: {uppercase}\nLength greater than 7 {length}\nLowercase included: {lowercase}\nSpecial characters included: {special}\n\nOverall password strength---{strength}---{PassStrength}")
 
 
