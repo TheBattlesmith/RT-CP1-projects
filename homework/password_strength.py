@@ -63,6 +63,6 @@ if strength == 5:
 
 
 
-print(f"Integers included: {integers}\nUppercase included: {uppercase}\nLength greater than 7 {length}\nLowercase included: {lowercase}\nSpecial characters included: {special}\n\nOverall password strength---{strength}---{PassStrength}")
+print(f"Integers included: {integers}\nUppercase included: {uppercase}\nLength greater than 7: {length}\nLowercase included: {lowercase}\nSpecial characters included: {special}\n\nOverall password strength---{strength}---{PassStrength}")
 
 
