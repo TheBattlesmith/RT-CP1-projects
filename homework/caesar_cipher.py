@@ -37,13 +37,13 @@ while True:
 
 
 
-    cipher = input("Please enter your desired message: ").lower()
+    cipher = input("Please enter your desired message: ")
 
-    available = [1,2]
+    available = [1,2,3]
 
     while True:
         try:
-            which = int(input("Would you like to \nEncrypt (1)\nOr decrypt(2)\n\nThis message? "))
+            which = int(input("Would you like to \nEncrypt (1)\nDecrypt(2)\nExit(3)\n\nThis message? "))
             if which not in available:
                    raise TypeError("---That wasn't an option---")
         except:
@@ -57,7 +57,10 @@ while True:
 
         print(*encoded)
 
-    if which == 2:
+    elif which == 2:
         decode()
 
         print(*decoded)
+    else:
+         print("---Have a nice day---")
+         break
