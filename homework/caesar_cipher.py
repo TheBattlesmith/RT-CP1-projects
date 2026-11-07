@@ -1,49 +1,65 @@
 # Roman Torres, period 1, Ceasar Cipher
 
-# place the program in a while loop so that the user can rerun without having to reload
-while True:
+
 
 
 # Function written to encode the message
-    def encode():
+def encode():
 
-        global cipher
-        global encoded
-        global encrypted
-        encoded = []
-        for i in cipher:
+    global cipher
+    global encoded
+    global encrypted
+    global shift
+    encoded = []
+    for i in cipher:
+        if i.isupper():
+            start = 65
+            new_index = chr((ord(i) - start - shift) % 26 + start)
+            encoded.append(new_index)
+        elif i.islower():
+            start = 97
+            new_index = chr((ord(i) - start - shift) % 26 + start)
+            encoded.append(new_index)
 
-                NL = ord(i)
-                new_index = NL + 2
+        else:
+            encoded.append(i)
+        
 
-                letter = chr(new_index)
-                encoded.append(letter)
-        encrypted = ''.join(encoded)
-        return encrypted
+        
+        
+    encrypted = ''.join(encoded)
+    return encrypted
 
 
 
 
 # Fuction written to decode the message
-    def decode():
-        global alphabet
-        global decoded
-        global decrypted
-        decoded = []
-        for i in cipher:
+def decode():
+    global alphabet
+    global decoded
+    global decrypted
+    global shift
+    decoded = []
+    for i in cipher:
+        if i.isupper():
+            start = 65
+            new_index = chr((ord(i) - start + shift) % 26 + start) 
+            decoded.append(new_index)
+        elif i.islower():
+            start = 97
+            new_index = chr((ord(i) - start + shift) % 26 + start) 
+            decoded.append(new_index)
+        else:
+            decoded.append(i)
+         
+    decrypted = ''.join(decoded)
+    return decrypted
 
-                NL = ord(i)
-                new_index = NL - 2
-
-                letter = chr(new_index)
-                decoded.append(letter)
-        decrypted = ''.join(decoded)
-        return decrypted
 
 
-            
 
-
+# place the program in a while loop so that the user can rerun without having to reload
+while True:
 
 
 # Getting user input for the text available to the program
@@ -63,7 +79,18 @@ while True:
         else:
              print(" ")
              break
-            
+
+# Getting user input for the shift value
+    while True:
+        try:
+            shift = int(input("Please enter the shift value integer you want to use: "))
+        except:
+             print("---That wasn't an option---")
+        else:
+             print(" ")
+             break        
+        
+
 # Calling function to make the output if the user wants to encrypt
     if which == 1:
         encode()
