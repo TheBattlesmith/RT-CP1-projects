@@ -5,11 +5,6 @@
 
 # Function written to encode the message
 def encode():
-
-    global cipher
-    global encoded
-    global encrypted
-    global shift
     encoded = []
     for i in cipher:
         if i.isupper():
@@ -35,10 +30,6 @@ def encode():
 
 # Fuction written to decode the message
 def decode():
-    global alphabet
-    global decoded
-    global decrypted
-    global shift
     decoded = []
     for i in cipher:
         if i.isupper():
@@ -93,14 +84,13 @@ while True:
 
 # Calling function to make the output if the user wants to encrypt
     if which == 1:
-        encode()
         print("Your encrypted message is: \n")
-        print(encrypted, "\n")
+        print(encode(), "\n")
+        
 # Calling function to make the output if the user wants to decrypt
     elif which == 2:
-        decode()
         print("Your decrypted message is: \n")
-        print(decrypted, "\n")
+        print(decode(), "\n")
 
 # Checking whether the user wants to exit the program
     while True:
