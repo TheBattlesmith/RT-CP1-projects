@@ -20,13 +20,29 @@ def feature(turtle, color):
     
 
 def move(turtle):
-    distance = random.randint(10,20)
+    distance = random.randint(5,20)
+
     for i in range(distance):
-        turtle.tilt(-20)
+        turtle.tilt(40)
         turtle.forward(5)
-        turtle.tilt(20)
+        turtle.tilt(-40)
+   
 
+def check (turtle, n, winner):
+    if turtle.position() >= (300, n):
+        turtle.write("Hooray! I WON!!!!")   
+        turtle.right(360)
+        print(f"{winner}, WINS!!!")
+        return False
+    else:
+        return True
 
+        
+
+        
+                    
+
+no_win = True
 
 t_map = t.Turtle()
 t_map.pensize(10)
@@ -36,6 +52,8 @@ t_map.goto(300, 250)
 t_map.right(90)
 t_map.pendown()
 t_map.forward(500)
+
+
 
 t_red = t.Turtle()
 start(t_red, 200)
@@ -58,13 +76,29 @@ t_blue = t.Turtle()
 start(t_blue, -200)
 feature(t_blue, "blue")
 
-while True:
+
+
+
+while no_win == True:
 
     move(t_red)
+    no_win = check(t_red, 200, "RED")
+    
+
     move(t_orange)
+    no_win = check(t_orange, 100, "ORANGE")
+
     move(t_purple)
+    no_win = check(t_purple, 0, "PURPLE")
+
     move(t_green)
+    no_win = check(t_green, -100, "GREEN")
+
     move(t_blue)
+    no_win = check(t_blue, -200, "BLUE")
+
+    
+
 
 
 
