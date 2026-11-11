@@ -4,6 +4,8 @@ import random
 
 import turtle as t
 
+
+# Function for placing turtles into their starting positions
 def start(turtle, y):
     turtle.hideturtle()
     turtle.penup()
@@ -11,6 +13,7 @@ def start(turtle, y):
     turtle.pendown()
     turtle.showturtle()
 
+# Function for selecting the differing colors for each turtle
 def feature(turtle, color):
     turtle.shape("turtle")
     turtle.color(color)
@@ -18,16 +21,15 @@ def feature(turtle, color):
 
 
     
-
+# Function for turtle movement in each leg of the race
 def move(turtle):
     distance = random.randint(5,20)
-
     for i in range(distance):
         turtle.tilt(40)
         turtle.forward(5)
         turtle.tilt(-40)
    
-
+# Function for finding whether a turtle has won
 def check (turtle, n, winner):
     if turtle.position() >= (300, n):
         turtle.write("Hooray! I WON!!!!")   
@@ -44,6 +46,7 @@ def check (turtle, n, winner):
 
 no_win = True
 
+# Setup of the finish line
 t_map = t.Turtle()
 t_map.pensize(10)
 t_map.hideturtle()
@@ -54,7 +57,7 @@ t_map.pendown()
 t_map.forward(500)
 
 
-
+# Setup of the seperate turtles colors, and positions
 t_red = t.Turtle()
 start(t_red, 200)
 feature(t_red, "red" )
@@ -78,7 +81,7 @@ feature(t_blue, "blue")
 
 
 
-
+# Race loop
 while no_win == True:
 
     move(t_red)
@@ -105,5 +108,5 @@ while no_win == True:
 
 
 
-
+# Keeps the page open until clicked
 t.exitonclick()
