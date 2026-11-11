@@ -30,10 +30,10 @@ def move(turtle):
         turtle.tilt(-40)
    
 # Function for finding whether a turtle has won
-def check (turtle, n, winner):
-    if turtle.position() >= (300, n):
+def check (turtle, winner):
+    if turtle.xcor() >= 300:
         turtle.write("Hooray! I WON!!!!")   
-        turtle.right(360)
+        turtle.right(720)
         print(f"{winner}, WINS!!!")
         return False
     else:
@@ -85,21 +85,26 @@ feature(t_blue, "blue")
 while no_win == True:
 
     move(t_red)
-    no_win = check(t_red, 200, "RED")
-    
+    no_win = check(t_red, "RED")
+    if no_win == False:
+        break
 
     move(t_orange)
-    no_win = check(t_orange, 100, "ORANGE")
-
+    no_win = check(t_orange, "ORANGE")
+    if no_win == False:
+        break
     move(t_purple)
-    no_win = check(t_purple, 0, "PURPLE")
-
+    no_win = check(t_purple, "PURPLE")
+    if no_win == False:
+        break
     move(t_green)
-    no_win = check(t_green, -100, "GREEN")
-
+    no_win = check(t_green, "GREEN")
+    if no_win == False:
+        break
     move(t_blue)
-    no_win = check(t_blue, -200, "BLUE")
-
+    no_win = check(t_blue, "BLUE")
+    if no_win == False:
+        break
     
 
 
