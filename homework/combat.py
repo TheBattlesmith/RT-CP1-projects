@@ -101,7 +101,7 @@ def p_turn(p_class):
 # The effects of the player’s choice of move
 
 
-def move_effect(decision,p_class, mhp, ac, php, attack, mac ):
+def move_effect(decision,p_class, mac ):
 	if p_class == "sorcerer":
 		if decision == 1:
 			fire = random.randint(1,30)
@@ -328,7 +328,7 @@ while mhp > 0 and php > 0:
         ac = 10
 
     decision = p_turn(p_class)
-    you = move_effect(decision, p_class, mhp, ac, php, attack, mac)
+    you = move_effect(decision, p_class, mac)
     if decision == 1:
         mhp = mhp - you
     elif decision == 2:
