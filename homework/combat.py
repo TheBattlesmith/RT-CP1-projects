@@ -19,18 +19,24 @@ def m_turn (type, php, matk, ac):
    if type == "wolf":
        attack = d20() + matk
        if attack >= ac:
-           php -= random.randint(1, 8) + matk
+           php = random.randint(1, 8) + matk
            return php
+       else:
+              return 0
    if type == "bear":
        attack = d20() + matk
        if attack >= ac:
-           php -= random.randint(1, 10) + matk
+           php = random.randint(1, 10) + matk
            return php
+       else:
+              return 0
    if type == "dark knight":
        attack = d20() + matk
        if attack >= ac:
-           php -= random.randint(1, 12) + matk
+           php = random.randint(1, 12) + matk
            return php
+       else:
+              return 0
 
 
 # Player’s turn based on class chosen
@@ -99,16 +105,16 @@ def move_effect(decision,p_class, mhp, ac, php, attack, mac ):
 	if p_class == "sorcerer":
 		if decision == 1:
 			fire = random.randint(1,30)
-			mhp -=fire
-			return mhp
+			
+			return fire
 		elif decision == 2:
 			shield= random.randint(1,10)
-			ac += shield
-			return ac
+			
+			return shield
 		elif decision == 3:
 			heal = random.randint(1,10)
-			php += heal
-			return php
+			
+			return heal
 		else:
 			done = "finished"
 			return done
@@ -117,16 +123,16 @@ def move_effect(decision,p_class, mhp, ac, php, attack, mac ):
 			roll = d20()
 			if roll >= mac:
 				fire = random.randint(20,25)
-				mhp -=fire
-				return mhp
+				
+				return fire
 		elif decision == 2:
 			shield= random.randint(5,9)
-			ac += shield
-			return ac
+			
+			return shield
 		elif decision == 3:
 			heal = random.randint(1,5)
-			php += heal
-			return php
+			
+			return heal
 		else:
 			done = "finished"
 			return done
@@ -135,17 +141,17 @@ def move_effect(decision,p_class, mhp, ac, php, attack, mac ):
 		if decision == 1:
 			roll = d20()	
 			if roll >= mac:
-				fire = random.randint(15)
-				mhp -=fire
-				return mhp
+				fire = random.randint(10,15)
+				
+				return fire
 		elif decision == 2:
 			shield= random.randint(1,10)
-			ac += shield
-			return ac
+			
+			return shield
 		elif decision == 3:
 			heal = random.randint(5, 10)
-			php += heal
-			return php
+			
+			return heal
 		else:
 			done = "finished"
 			return done
@@ -154,15 +160,15 @@ def move_effect(decision,p_class, mhp, ac, php, attack, mac ):
 			roll = d20()
 			if roll >= mac:
 				fire = random.randint(5,10)
-				mhp -=fire
-				return mhp
+				
+				return fire
 		elif decision == 2:
 			shield= random.randint(1,4)
-			ac += shield
-			return ac
+			
+			return shield
 		elif decision == 3:
-			php += 13
-			return php
+			heal = random.randint(10,15)
+			return heal
 		else:
 			done = "finished"
 			return done
@@ -311,26 +317,28 @@ if p_class == "priest":
 
 while mhp > 0 and php > 0:
 
+    # Redefining ac to ensure the defensive ability doesn’t stack
+    if p_class == "sorcerer":
+        ac = 13
+    if p_class == "assassin":
+        ac = 15
+    if p_class == "knight":
+        ac = 17
+    if p_class == "priest":
+        ac = 10
 
+    decision = p_turn(p_class)
+    you = move_effect(decision, p_class, mhp, ac, php, attack, mac)
+    if decision == 1:
+        mhp = mhp - you
+    elif decision == 2:
+        ac += you
+    elif decision == 3:
+        php += you
+    else:
+        break
 
-   # Redefining ac to ensure the defensive ability doesn’t stack
-	if p_class == "sorcerer":
-		ac = 13
-	if p_class == "assassin":
-		ac = 15
-	if p_class == "knight":
-		ac = 17
-	if p_class == "priest":
-		ac = 10
-      
+    print(f"\nYour foe is at {mhp} hit points.\n")
 
-
-   
-	decision  = p_turn(p_class)
-	you = move_effect(decision, p_class, mhp, ac, php, attack, mac)
-	if you == "finished":
-		break
-	print(f"\nYour foe is at {mhp} hit points.\n")
-    
-	enemy = m_turn(monster, php, matk, ac)
-	print(f"\nYou are at {php} hit points.\n")
+    enemy = m_turn(monster, php, matk, ac)
+    print(f"\nYou are at {php} hit points.\n")
