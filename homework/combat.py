@@ -117,7 +117,7 @@ def move_effect(decision,p_class, mac ):
             return done
     if p_class == "assassin":
         if decision == 1:
-            roll = d20() + 4
+            roll = d20() + 5
             if roll >= mac:
                 fire = random.randint(20, 25)
                 return fire
