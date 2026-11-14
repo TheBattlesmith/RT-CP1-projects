@@ -46,7 +46,7 @@ def p_turn(p_class):
    if p_class == "sorcerer":
        while True:
            try:
-               move = int(input("\n\nWhat spell would you like to use?\n(1)Chaotic inferno(A mote of flame flies from your hand… you’re not sure how strong it’ll be though)\n(2)Shield of Change(A glowing defensive sigil appears in the air before you… most of the time)\n(3)Life Begotten(you’re not completely sure what this does, but you do know that you feel good after)\n(4)Escape(No magic, you’re just being a pansy)"))
+               move = int(input("\n\nWhat spell would you like to use?\n(1)Chaotic inferno(A mote of flame flies from your hand… you’re not sure how strong it’ll be though)\n(2)Shield of Change(A glowing defensive sigil appears in the air before you… most of the time)\n(3)Life Begotten(you’re not completely sure what this does, but you do know that you feel good after)\n(4)Escape(No magic, you’re just being a pansy)\n\n"))
                if move not in available:
                    raise TypeError("that wasn’t an option.")
            except:
@@ -58,7 +58,7 @@ def p_turn(p_class):
    if p_class == "assassin":
        while True:
            try:
-               move = int(input("\n\nWhich technique will you employ?\n(1)Death Strike(You attack your opponent where they’re weakest dealing huge amounts of damage)\n(2)Evade(For the next few seconds, you slip duck and weave under all attacks… most of the time)\n(3)Health Potion(Have a quick drink and get back to fighting more energized than before)\n(4)Run Away(Aaaaaaaaaah!!!)"))
+               move = int(input("\n\nWhich technique will you employ?\n(1)Death Strike(You attack your opponent where they’re weakest dealing huge amounts of damage)\n(2)Evade(For the next few seconds, you slip duck and weave under all attacks… most of the time)\n(3)Health Potion(Have a quick drink and get back to fighting more energized than before)\n(4)Run Away(Aaaaaaaaaah!!!)\n\n"))
                if move not in available:
                    raise TypeError("That wasn’t an option.")
            except:
@@ -84,7 +84,7 @@ def p_turn(p_class):
    if p_class == "priest":
        while True:
            try:
-               move = int(input("\n\nHow will you invoke your god?\n(1)Divine flame(A static point of fire blasts through the air dealing a set amount of damage each time)\n(2)Faith’s shield(You close your eyes as only the hand of your god protects you, although sometimes you catch em with their pants down and they don’t get there in time)\n(3)Healing light(divine energy suffuses your body mending wounds)\n(4)Pee your pants(This isn’t exactly a divine spell but it wouldn’t be the first time)"))
+               move = int(input("\n\nHow will you invoke your god?\n(1)Divine flame(A static point of fire blasts through the air dealing a set amount of damage each time)\n(2)Faith’s shield(You close your eyes as only the hand of your god protects you, although sometimes you catch em with their pants down and they don’t get there in time)\n(3)Healing light(divine energy suffuses your body mending wounds)\n(4)Pee your pants(This isn’t exactly a divine spell but it wouldn’t be the first time\n\n"))
                if move not in available:
                    raise TypeError("That wasn’t an option.")
            except:
