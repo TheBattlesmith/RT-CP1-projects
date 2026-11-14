@@ -17,21 +17,21 @@ def d20():
 
 def m_turn (type, php, matk, ac):
    if type == "wolf":
-       attack = d20() + matk
+       attack = d20() 
        if attack >= ac:
            php = random.randint(1, 8) + matk
            return php
        else:
               return 0
    if type == "bear":
-       attack = d20() + matk
+       attack = d20() 
        if attack >= ac:
            php = random.randint(1, 10) + matk
            return php
        else:
               return 0
    if type == "dark knight":
-       attack = d20() + matk
+       attack = d20() 
        if attack >= ac:
            php = random.randint(1, 12) + matk
            return php
@@ -341,4 +341,5 @@ while mhp > 0 and php > 0:
     print(f"\nYour foe is at {mhp} hit points.\n")
 
     enemy = m_turn(monster, php, matk, ac)
+    php = php - enemy
     print(f"\nYou are at {php} hit points.\n")
