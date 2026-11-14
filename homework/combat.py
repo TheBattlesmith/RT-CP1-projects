@@ -17,21 +17,21 @@ def d20():
 
 def m_turn (type, php, matk, ac):
    if type == "wolf":
-       attack = d20() 
+       attack = d20() +1
        if attack >= ac:
            php = random.randint(1, 8) + matk
            return php
        else:
               return 0
    if type == "bear":
-       attack = d20() 
+       attack = d20() + 2
        if attack >= ac:
            php = random.randint(1, 10) + matk
            return php
        else:
               return 0
    if type == "dark knight":
-       attack = d20() 
+       attack = d20() + 4
        if attack >= ac:
            php = random.randint(1, 12) + matk
            return php
@@ -102,76 +102,71 @@ def p_turn(p_class):
 
 
 def move_effect(decision,p_class, mac ):
-	if p_class == "sorcerer":
-		if decision == 1:
-			fire = random.randint(1,30)
-			
-			return fire
-		elif decision == 2:
-			shield= random.randint(1,10)
-			
-			return shield
-		elif decision == 3:
-			heal = random.randint(1,10)
-			
-			return heal
-		else:
-			done = "finished"
-			return done
-	if p_class == "assassin":
-		if decision == 1:
-			roll = d20()
-			if roll >= mac:
-				fire = random.randint(20,25)
-				
-				return fire
-		elif decision == 2:
-			shield= random.randint(5,9)
-			
-			return shield
-		elif decision == 3:
-			heal = random.randint(1,5)
-			
-			return heal
-		else:
-			done = "finished"
-			return done
-        
-	if p_class == "knight":
-		if decision == 1:
-			roll = d20()	
-			if roll >= mac:
-				fire = random.randint(10,15)
-				
-				return fire
-		elif decision == 2:
-			shield= random.randint(1,10)
-			
-			return shield
-		elif decision == 3:
-			heal = random.randint(5, 10)
-			
-			return heal
-		else:
-			done = "finished"
-			return done
-	if p_class == "priest":
-		if decision == 1:
-			roll = d20()
-			if roll >= mac:
-				fire = random.randint(5,10)
-				
-				return fire
-		elif decision == 2:
-			shield= random.randint(1,4)
-			
-			return shield
-		elif decision == 3:
-			heal = random.randint(10,15)
-			return heal
-		else:
-			done = "finished"
-			return done
+    if p_class == "sorcerer":
+        if decision == 1:
+            fire = random.randint(1, 30)
+            return fire
+        elif decision == 2:
+            shield = random.randint(1, 10)
+            return shield
+        elif decision == 3:
+            heal = random.randint(1, 10)
+            return heal
+        else:
+            done = "finished"
+            return done
+    if p_class == "assassin":
+        if decision == 1:
+            roll = d20() + 3
+            if roll >= mac:
+                fire = random.randint(20, 25)
+                return fire
+            else:
+                return 0
+        elif decision == 2:
+            shield = random.randint(5, 9)
+            return shield
+        elif decision == 3:
+            heal = random.randint(1, 5)
+            return heal
+        else:
+            done = "finished"
+            return done
+
+    if p_class == "knight":
+        if decision == 1:
+            roll = d20() + 6
+            if roll >= mac:
+                fire = random.randint(10, 15)
+                return fire
+            else:
+                return 0
+        elif decision == 2:
+            shield = random.randint(1, 10)
+            return shield
+        elif decision == 3:
+            heal = random.randint(5, 10)
+            return heal
+        else:
+            done = "finished"
+            return done
+    if p_class == "priest":
+        if decision == 1:
+            roll = d20() + 3
+            if roll >= mac:
+                fire = random.randint(5, 10)
+                return fire
+            else:
+                return 0
+        elif decision == 2:
+            shield = random.randint(1, 4)
+            return shield
+        elif decision == 3:
+            heal = random.randint(10, 15)
+            return heal
+        else:
+            done = "finished"
+            return done
 
 
 
@@ -268,7 +263,7 @@ monster = difficulty(difficult)
 
 
 if monster == "wolf":
-   mhp =25
+   mhp = 25
    mac = 10
    matk = 1
 if monster == "bear":
@@ -330,7 +325,7 @@ while mhp > 0 and php > 0:
     decision = p_turn(p_class)
     you = move_effect(decision, p_class, mac)
     if decision == 1:
-        mhp = mhp - you
+        mhp -= you
     elif decision == 2:
         ac += you
     elif decision == 3:
@@ -341,5 +336,5 @@ while mhp > 0 and php > 0:
     print(f"\nYour foe is at {mhp} hit points.\n")
 
     enemy = m_turn(monster, php, matk, ac)
-    php = php - enemy
+    php -= enemy
     print(f"\nYou are at {php} hit points.\n")
