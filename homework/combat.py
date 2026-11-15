@@ -289,7 +289,7 @@ while j == True:
 
 
     print(f"You are fighting a {monster}!")
-
+    chance = random.randint(1,2)
 
 
 
@@ -312,35 +312,70 @@ while j == True:
 
     # Combat loop
 
+    if chance == 2:
+        while mhp > 0 and php > 0:
 
-    while mhp > 0 and php > 0:
+            # Redefining ac to ensure the defensive ability doesn’t stack
+            if p_class == "sorcerer":
+                ac = 13
+            if p_class == "assassin":
+                ac = 15
+            if p_class == "knight":
+                ac = 17
+            if p_class == "priest":
+                ac = 10
 
-        # Redefining ac to ensure the defensive ability doesn’t stack
-        if p_class == "sorcerer":
-            ac = 13
-        if p_class == "assassin":
-            ac = 15
-        if p_class == "knight":
-            ac = 17
-        if p_class == "priest":
-            ac = 10
+            decision = p_turn(p_class)
+            you = move_effect(decision, p_class, mac)
+            if decision == 1:
+                mhp -= you
+            elif decision == 2:
+                ac += you
+            elif decision == 3:
+                php += you
+            else:
+                break
 
-        decision = p_turn(p_class)
-        you = move_effect(decision, p_class, mac)
-        if decision == 1:
-            mhp -= you
-        elif decision == 2:
-            ac += you
-        elif decision == 3:
-            php += you
-        else:
-            break
+            print(f"\nYour foe is at {mhp} hit points.\n")
 
-        print(f"\nYour foe is at {mhp} hit points.\n")
+            enemy = m_turn(monster, php, matk, ac)
+            php -= enemy
+            print(f"\nYou are at {php} hit points.\n")
 
-        enemy = m_turn(monster, php, matk, ac)
-        php -= enemy
-        print(f"\nYou are at {php} hit points.\n")
+    if chance == 1:
+        while mhp > 0 and php > 0:
+
+            enemy = m_turn(monster, php, matk, ac)
+            php -= enemy
+            print(f"\nYour enemy attacked and dealt {enemy} damage!\n")
+            print(f"\nYou are at {php} hit points.\n")
+
+            # Redefining ac to ensure the defensive ability doesn’t stack
+            if p_class == "sorcerer":
+                ac = 13
+            if p_class == "assassin":
+                ac = 15
+            if p_class == "knight":
+                ac = 17
+            if p_class == "priest":
+                ac = 10
+
+            decision = p_turn(p_class)
+            you = move_effect(decision, p_class, mac)
+            if decision == 1:
+                mhp -= you
+            elif decision == 2:
+                ac += you
+            elif decision == 3:
+                php += you
+            else:
+                break
+
+            print(f"\nYour foe is at {mhp} hit points.\n")
+            print(f"\nYou are at {php} hit points.\n")
+            print(f"\nYour AC is {ac}.\n")
+
+
 
 
     if mhp <= 0:
