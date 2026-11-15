@@ -39,6 +39,7 @@ def d20():
 def m_turn (type, php, matk, ac):
    if type == "wolf":
        attack = d20() +1
+       print(f"\nThe {type} rolled a {attack}!\n")
        if attack >= ac:
            php = random.randint(1, 8) + matk
            return php
@@ -46,6 +47,7 @@ def m_turn (type, php, matk, ac):
               return 0
    if type == "bear":
        attack = d20() + 2
+       print(f"\nThe {type} rolled a {attack}!\n")
        if attack >= ac:
            php = random.randint(1, 10) + matk
            return php
@@ -53,6 +55,7 @@ def m_turn (type, php, matk, ac):
               return 0
    if type == "dark knight":
        attack = d20() + 4
+       print(f"\nThe {type} rolled a {attack}!\n")
        if attack >= ac:
            php = random.randint(1, 12) + matk
            return php
@@ -166,7 +169,7 @@ def move_effect(decision,p_class, mac ):
             shield = random.randint(4, 8)
             return shield
         elif decision == 3:
-            heal = random.randint(5, 10)
+            heal = random.randint(3, 8)
             return heal
         else:
             done = "finished"
@@ -180,10 +183,10 @@ def move_effect(decision,p_class, mac ):
             else:
                 return 0
         elif decision == 2:
-            shield = random.randint(1, 4)
+            shield = random.randint(5, 10)
             return shield
         elif decision == 3:
-            heal = random.randint(12, 20)
+            heal = random.randint(8, 15)
             return heal
         else:
             done = "finished"
@@ -348,8 +351,11 @@ while j == True:
 
             enemy = m_turn(monster, php, matk, ac)
             php -= enemy
-            print(f"\nYou are at {php} hit points.\n")
+            print(f"They dealt {enemy} damage!\n")
+            print(f"\nYou are now at {php} hit points.\n")
             print(f"\nYour AC is {ac}.\n")
+            if php <= 0:
+                break
             
 
 
@@ -358,7 +364,10 @@ while j == True:
 
             enemy = m_turn(monster, php, matk, ac)
             php -= enemy
-            print(f"\nYour enemy attacked and dealt {enemy} damage!\n")
+            print(f"They dealt {enemy} damage!\n")
+            print(f"\nYou are now at {php} hit points.\n")
+            if php <= 0:
+                break
 
             # Redefining ac to ensure the defensive ability doesn’t stack
             if p_class == "sorcerer":
@@ -382,7 +391,6 @@ while j == True:
                 break
 
             print(f"\nYour foe is at {mhp} hit points.\n")
-            print(f"\nYou are at {php} hit points.\n")
             print(f"\nYour AC is {ac}.\n")
 
 
