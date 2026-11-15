@@ -308,6 +308,14 @@ while j == True:
     if p_class == "priest":
         php = 25
         attack = 0
+    if p_class == "sorcerer":
+                ac = 13
+    if p_class == "assassin":
+                ac = 15
+    if p_class == "knight":
+                ac = 17
+    if p_class == "priest":
+                ac = 10
 
 
     # Combat loop
@@ -341,7 +349,6 @@ while j == True:
             enemy = m_turn(monster, php, matk, ac)
             php -= enemy
             print(f"\nYou are at {php} hit points.\n")
-            print(f"\nYour foe is at {mhp} hit points.\n")
             print(f"\nYour AC is {ac}.\n")
             
 
