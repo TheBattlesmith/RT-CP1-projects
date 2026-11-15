@@ -223,144 +223,145 @@ available = [1,2,3,4]
 options = [1,2,3]
 done = [1,2]
 
-
+j = True
 
 
 
 # Asking user what class they want to be
 
-
-while True:
-   try:
-       choice = int(input("Which class do you choose to be? please input a number.\nSorcerer(1)\nAssassin(2)\nKnight(3)\nPriest(4)\n"))
-       if choice not in available:
-           raise TypeError("That wasn't an option.")
-   except:
-       print("That wasn't an option.")
-   else:
-       break
-p_class = classes(choice)
-powers = abilities()
-
-
-
-
-# Asking user what difficulty they want
-
-
-while True:
-   try:
-       difficult = int(input("\nWhat difficulty — 1, 2, or 3: "))
-       if difficult not in options:
-           raise TypeError("that wasn’t an option.")
-   except:
-       print("That wasn’t an option")
-   else:
-       break
-
-
-# Defining monster stats
-
-
-monster = difficulty(difficult)
-
-
-if monster == "wolf":
-   mhp = 25
-   mac = 10
-   matk = 1
-if monster == "bear":
-   mhp = 35
-   mac = 14
-   matk = 3
-if monster == "dark knight":
-   mhp = 50
-   mac = 18
-   matk = 8
+while j == True:
+    while True:
+        try:
+            choice = int(input("Which class do you choose to be? please input a number.\nSorcerer(1)\nAssassin(2)\nKnight(3)\nPriest(4)\n"))
+            if choice not in available:
+                raise TypeError("That wasn't an option.")
+        except:
+            print("That wasn't an option.")
+        else:
+            break
+    p_class = classes(choice)
+    powers = abilities()
 
 
 
 
-# Telling user what they’ve chosen and their abilities, and what monster you’ll be fighting based on your chosen difficulty
-  
-print(f"You are a {p_class} and your abilities are." )
-for i in powers:
-   print(i)
+    # Asking user what difficulty they want
 
 
-print(f"You are fighting a {monster}!")
+    while True:
+        try:
+            difficult = int(input("\nWhat difficulty — 1, 2, or 3: "))
+            if difficult not in options:
+                raise TypeError("that wasn’t an option.")
+        except:
+            print("That wasn’t an option")
+        else:
+            break
+
+
+    # Defining monster stats
+
+
+    monster = difficulty(difficult)
+
+
+    if monster == "wolf":
+        mhp = 25
+        mac = 10
+        matk = 1
+    if monster == "bear":
+        mhp = 35
+        mac = 14
+        matk = 3
+    if monster == "dark knight":
+        mhp = 50
+        mac = 18
+        matk = 8
 
 
 
 
-# Defining user hit points based on class
+    # Telling user what they’ve chosen and their abilities, and what monster you’ll be fighting based on your chosen difficulty
+    
+    print(f"You are a {p_class} and your abilities are." )
+    for i in powers:
+        print(i)
 
 
-if p_class == "sorcerer":
-   php = 30
-   attack = 3
-if p_class == "assassin":
-   php = 25
-   attack = 10
-if p_class == "knight":
-   php = 45
-   attack = 8
-if p_class == "priest":
-   php = 25
-   attack = 0
+    print(f"You are fighting a {monster}!")
 
 
-# Combat loop
 
 
-while mhp > 0 and php > 0:
+    # Defining user hit points based on class
 
-    # Redefining ac to ensure the defensive ability doesn’t stack
+
     if p_class == "sorcerer":
-        ac = 13
+        php = 30
+        attack = 3
     if p_class == "assassin":
-        ac = 15
+        php = 25
+        attack = 10
     if p_class == "knight":
-        ac = 17
+        php = 45
+        attack = 8
     if p_class == "priest":
-        ac = 10
+        php = 25
+        attack = 0
 
-    decision = p_turn(p_class)
-    you = move_effect(decision, p_class, mac)
-    if decision == 1:
-        mhp -= you
-    elif decision == 2:
-        ac += you
-    elif decision == 3:
-        php += you
+
+    # Combat loop
+
+
+    while mhp > 0 and php > 0:
+
+        # Redefining ac to ensure the defensive ability doesn’t stack
+        if p_class == "sorcerer":
+            ac = 13
+        if p_class == "assassin":
+            ac = 15
+        if p_class == "knight":
+            ac = 17
+        if p_class == "priest":
+            ac = 10
+
+        decision = p_turn(p_class)
+        you = move_effect(decision, p_class, mac)
+        if decision == 1:
+            mhp -= you
+        elif decision == 2:
+            ac += you
+        elif decision == 3:
+            php += you
+        else:
+            break
+
+        print(f"\nYour foe is at {mhp} hit points.\n")
+
+        enemy = m_turn(monster, php, matk, ac)
+        php -= enemy
+        print(f"\nYou are at {php} hit points.\n")
+
+
+    if mhp <= 0:
+        print(f"\nYou have defeated the {monster}!\n")
+    elif php <= 0:
+        print(f"\nYou died!\n")
     else:
-        break
+        print(f"\nYou ran away from the {monster}... Coward!\n")
 
-    print(f"\nYour foe is at {mhp} hit points.\n")
+    while True:
+        try:
+            again = int(input("Would you like to play again?\n(1)Yes\n(2)No\n"))
+            if again not in done:
+                raise TypeError("That wasn’t an option.")
+        except:
+            print("That wasn’t an option.")
+        else:
+            break
 
-    enemy = m_turn(monster, php, matk, ac)
-    php -= enemy
-    print(f"\nYou are at {php} hit points.\n")
-
-
-if mhp <= 0:
-    print(f"\nYou have defeated the {monster}!\n")
-elif php <= 0:
-    print(f"\nYou died!\n")
-else:
-    print(f"\nYou ran away from the {monster}... Coward!\n")
-
-while True:
-    try:
-        again = int(input("Would you like to play again?\n(1)Yes\n(2)No\n"))
-        if again not in done:
-            raise TypeError("That wasn’t an option.")
-    except:
-        print("That wasn’t an option.")
-    else:
-        break
-
-if again == 1:
-    print("Excellent!")
-if again == 2:
-    print("Goodbye!")
+    if again == 1:
+        print("Excellent!")
+    if again == 2:
+        print("Goodbye!")
+        j = False
