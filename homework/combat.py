@@ -3,6 +3,27 @@
 
 import random
 
+def classes (which):
+   if which == 1:
+       return "sorcerer"
+   if which == 2:
+       return "assassin"
+   if which == 3:
+       return "knight"
+   if which == 4:
+       return "priest"
+# difficulty/monster choice function
+def difficulty(difficult):
+   if difficult == 1:
+       monster = "wolf"
+   if difficult == 2:
+       monster = "bear"
+   if difficult == 3:
+       monster = "dark knight"
+   return monster
+
+
+
 
 # Chance function
 
@@ -72,7 +93,7 @@ def p_turn(p_class):
    if p_class == "knight":
        while True:
            try:
-               move = int(input("\n\nWhich way shall your steel fly?\n(1)Attack(The basic combination taught to all knights for the reason of combat)\n(2)Parry(Your shield shoots forward, attempting to bash away incoming attacks)\n(3)Mipha’s grace(A special healing technique known only to you and some fish)\n(4)Flee(you’ll bring dishonor to yourself)"))
+               move = int(input("\n\nWhich way shall your steel fly?\n(1)Attack(The basic combination taught to all knights for the reason of combat)\n(2)Parry(Your shield shoots forward, attempting to bash away incoming attacks)\n(3)Mipha’s grace(A special healing technique known only to you and some fish)\n(4)Flee(you’ll bring dishonor to yourself)\n\n"))
                if move not in available:
                    raise TypeError("That wasn’t an option.")
            except:
@@ -174,24 +195,6 @@ def move_effect(decision,p_class, mac ):
 # function of possible classes to choose
 
 
-def classes (which):
-   if which == 1:
-       return "sorcerer"
-   if which == 2:
-       return "assassin"
-   if which == 3:
-       return "knight"
-   if which == 4:
-       return "priest"
-# difficulty/monster choice function
-def difficulty(difficult):
-   if difficult == 1:
-       monster = "wolf"
-   if difficult == 2:
-       monster = "bear"
-   if difficult == 3:
-       monster = "dark knight"
-   return monster
 
 
 # showing abilities based on class
@@ -218,7 +221,7 @@ def abilities ():
 
 available = [1,2,3,4]
 options = [1,2,3]
-
+done = [1,2]
 
 
 
@@ -338,3 +341,26 @@ while mhp > 0 and php > 0:
     enemy = m_turn(monster, php, matk, ac)
     php -= enemy
     print(f"\nYou are at {php} hit points.\n")
+
+
+if mhp <= 0:
+    print(f"\nYou have defeated the {monster}!\n")
+elif php <= 0:
+    print(f"\nYou died!\n")
+else:
+    print(f"\nYou ran away from the {monster}... Coward!\n")
+
+while True:
+    try:
+        again = int(input("Would you like to play again?\n(1)Yes\n(2)No\n"))
+        if again not in done:
+            raise TypeError("That wasn’t an option.")
+    except:
+        print("That wasn’t an option.")
+    else:
+        break
+
+if again == 1:
+    print("Excellent!")
+if again == 2:
+    print("Goodbye!")
