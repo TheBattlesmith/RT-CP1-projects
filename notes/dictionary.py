@@ -24,4 +24,69 @@ car = {
     "year": 2023
 }
 
+
+keys = list(car.keys())
+values = list(car.values())
+
+
+
+print(values)
+print(len(car))
+if "transmission" in car:
+    print(car["transmission"])
+else:
+    car["transmission"] = "automatic"
+
+for key in keys:
+    print(f"{key} is {car[key]}")
+
+
+
+# to remove
+car.pop("color")
+
+
+# prints keys
 print(car)
+
+# prints values
+print(car["make"])
+
+print(list(car.keys()))
+
+
+
+
+
+
+
+avatar = {
+    "water": {
+        "Katara": "Water bender",
+        "Sokka": "Leader",
+    },
+    "earth": {
+        "Toph": "Earth bender"
+    },
+    "air": {
+        "Aang": "Air bender"
+    },
+    "fire": {
+        "Zuko": "Fire bender",
+        "Iroh": "Fire GOAT",
+        "Azula": "crazy",
+    }
+
+}
+
+
+# Brackets near eachother for stacked lists
+print(avatar["fire"]["Iroh"])
+
+# Common problem Bumi doesn't exist
+
+#print(avatar["earth"]["Bumi"])
+
+print(avatar.get("earth").get("Bumi"))
+
+# fix
