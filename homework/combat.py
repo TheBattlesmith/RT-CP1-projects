@@ -70,7 +70,7 @@ def p_turn(p_class):
    if p_class == "sorcerer":
        while True:
            try:
-               move = int(input("\n\nWhat spell would you like to use?(Number input)\n(1)Chaotic inferno(A mote of flame flies from your hand… you’re not sure how strong it’ll be though)\n(2)Shield of Change(A glowing defensive sigil appears in the air before you… most of the time)\n(3)Life Begotten(you’re not completely sure what this does, but you do know that you feel good after)\n(4)Escape(No magic, you’re just being a pansy)\n\n"))
+               move = int(input("\n\nWhat spell would you like to use?(Number input)\n\n(1)Chaotic inferno(A mote of flame flies from your hand… you’re not sure how strong it’ll be though)\n\n(2)Shield of Change(A glowing defensive sigil appears in the air before you… most of the time)\n\n(3)Life Begotten(you’re not completely sure what this does, but you do know that you feel good after)\n\n(4)Escape(No magic, you’re just being a pansy)\n\n"))
                if move not in available:
                    raise TypeError("that wasn’t an option.")
            except:
@@ -82,7 +82,7 @@ def p_turn(p_class):
    if p_class == "assassin":
        while True:
            try:
-               move = int(input("\n\nWhich technique will you employ?(Number input)\n(1)Death Strike(You attack your opponent where they’re weakest dealing huge amounts of damage)\n(2)Evade(For the next few seconds, you slip duck and weave under all attacks… most of the time)\n(3)Health Potion(Have a quick drink and get back to fighting more energized than before)\n(4)Run Away(Aaaaaaaaaah!!!)\n\n"))
+               move = int(input("\n\nWhich technique will you employ?(Number input)\n\n(1)Death Strike(You attack your opponent where they’re weakest dealing huge amounts of damage)\n\n(2)Evade(For the next few seconds, you slip duck and weave under all attacks… most of the time)\n\n(3)Health Potion(Have a quick drink and get back to fighting more energized than before)\n\n(4)Run Away(Aaaaaaaaaah!!!)\n\n"))
                if move not in available:
                    raise TypeError("That wasn’t an option.")
            except:
@@ -96,7 +96,7 @@ def p_turn(p_class):
    if p_class == "knight":
        while True:
            try:
-               move = int(input("\n\nWhich way shall your steel fly?(Number input)\n(1)Attack(The basic combination taught to all knights for the reason of combat)\n(2)Parry(Your shield shoots forward, attempting to bash away incoming attacks)\n(3)Mipha’s grace(A special healing technique known only to you and some fish)\n(4)Flee(you’ll bring dishonor to yourself)\n\n"))
+               move = int(input("\n\nWhich way shall your steel fly?(Number input)\n\n(1)Attack(The basic combination taught to all knights for the reason of combat)\n\n(2)Parry(Your shield shoots forward, attempting to bash away incoming attacks)\n\n(3)Mipha’s grace(A special healing technique known only to you and some fish)\n\n(4)Flee(you’ll bring dishonor to yourself)\n\n"))
                if move not in available:
                    raise TypeError("That wasn’t an option.")
            except:
@@ -108,7 +108,7 @@ def p_turn(p_class):
    if p_class == "priest":
        while True:
            try:
-               move = int(input("\n\nHow will you invoke your god? (Number input)\n(1)Divine flame(A static point of fire blasts through the air dealing a set amount of damage each time)\n(2)Faith’s shield(You close your eyes as only the hand of your god protects you, although sometimes you catch em with their pants down and they don’t get there in time)\n(3)Healing light(divine energy suffuses your body mending wounds)\n(4)Pee your pants(This isn’t exactly a divine spell but it wouldn’t be the first time\n\n"))
+               move = int(input("\n\nHow will you invoke your god? (Number input)\n\n(1)Divine flame(A static point of fire blasts through the air dealing a set amount of damage each time)\n\n(2)Faith’s shield(You close your eyes as only the hand of your god protects you, although sometimes you catch em with their pants down and they don’t get there in time)\n\n(3)Healing light(divine energy suffuses your body mending wounds)\n\n(4)Pee your pants(This isn’t exactly a divine spell but it wouldn’t be the first time\n\n"))
                if move not in available:
                    raise TypeError("That wasn’t an option.")
            except:
