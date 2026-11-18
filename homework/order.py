@@ -13,7 +13,7 @@ def sd (i):
     elif i == 3:
         return  3
     else:
-        return 793
+        return 10
 
 def md (i):
     if i == 1:
@@ -27,13 +27,13 @@ def md (i):
 
 def dd (i):
     if i == 1:
-        return  200
+        return  2.50
     elif i == 2:
-        return 300
+        return 3
     elif i == 3:
         return  1
     else:
-        return 250
+        return 1.50
 
 def so (i):
     if i == 1:
@@ -67,10 +67,10 @@ def do (i):
 
 
 drinks = {
-    "Orange juice": 200,
-    "Water": 300,
+    "Orange juice": 2.50,
+    "Water": 3,
     "Blood": 1,
-    "lemonade": 250
+    "lemonade": 1.50
 }
 main = {
     "French Croissant": 1,
@@ -82,7 +82,7 @@ sides ={
     "Pinto beans": 7,
     "Black beans": 9,
     "Green beans": 3,
-    "Chili": 793
+    "Chili": 10
 }
 
 # Lists
@@ -166,10 +166,45 @@ for i in range(2):
 
     choices.append(s_choice)
 
+# finding the total price
 numbers = 0
 index = 0
 for i in total:
-    index += 2
-    numbers += total.index(index)
+    numbers += i
 
-print(numbers)
+tax = round((6.35/100)*numbers,2)
+
+yn = [1,2]
+while True:
+    try:
+        tip = int(input("Would you like to leave a tip? (1 for yes), (2 for no): "))
+        if tip not in yn:
+            raise TypeError("That wasn't an option!")
+    except:
+        print("that wasn't an option")
+    else:
+        break
+
+
+
+if tip == 1:
+    while True:
+        try:
+            amount = float(input("How much money would you like to tip? "))
+        except:
+            print("That isn't an amount.")
+        else:
+            break
+    round(amount, 2)
+else:
+    amount = 0
+
+
+
+final_amount = round(tax + amount + numbers,2)
+
+# Description of order
+
+print(f"your order is\n\nDrink: {choices[0]}, price - ${total[0]}\nMain: {choices[1]}, price - ${total[1]}\nSide 1: {choices[2]}, price - ${total[2]}\nSide 2: {choices[3]}, price - ${total[3]}\nTax ${tax}\nTip {amount}\n\nTotal price - ${final_amount}")
+
+
