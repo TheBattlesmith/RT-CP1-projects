@@ -73,15 +73,15 @@ drinks = {
     "lemonade": 1.50
 }
 main = {
-    "French Croissant": 1,
-    "Baked potato": 12,
+    "french croissant": 1,
+    "baked potato": 12,
     "JCW's sandwich (not stolen)": 10,
     "steak": 5000
 }
 sides ={
-    "Pinto beans": 7,
-    "Black beans": 9,
-    "Green beans": 3,
+    "Pinto Beans": 7,
+    "Black Beans": 9,
+    "Green Beans": 3,
     "Chili": 10
 }
 
@@ -128,18 +128,21 @@ print("")
 
 while True:
     try:
-        main = int(input("\n"))
-        if main not in stupid:
+        main_c = (input("\n")).title()
+        if main_c not in main:
             raise TypeError("That wasn't an option")
     except:
         print("That wasn't an option.")
     else:
         break
-main_dish = md(main)
-m_choice = mo(main)
 
-total.append(main_dish)
-choices.append(m_choice)
+m_price = main.values()
+
+if main_c in main:
+    total.append(main_c)
+    choices.append(main_c[m_price])
+
+
 
 
 print("What do you want as your side dishes? (Number input) [choose 2]")
@@ -199,7 +202,8 @@ if tip == 1:
 else:
     amount = 0
 
-
+if amount < 0:
+    amount = 0
 
 final_amount = round(tax + amount + numbers,2)
 
