@@ -38,7 +38,7 @@ while True:
     # While loop to get the desired numbers from user and stupid proof
     while True:
         try:
-            numbers = float(input("What number would you like to add to your equation? "))
+            numbers = float(input("\nWhat number would you like to add to your equation? "))
         except:
             print("That isn't a number.")
         else:
@@ -70,7 +70,7 @@ while True:
     # Asking if the user wants to leave
     while True:
         try:
-            done = input("Would you like to work a different equation? (y/n)").lower().strip()
+            done = input("\nWould you like to work a different equation? (y/n) --- ").lower().strip()
             if done not in finished:
                 raise TypeError("That wasn't an option.")
         except:
