@@ -1,6 +1,7 @@
 # Roman Torres, period 1, flexible calculator
 import math
 
+# Function for the different operations you can perform 
 def equations(op, *args):
 
     if op == "sum":
@@ -66,6 +67,7 @@ while True:
     # Printing the final result
     print(f"Based on your choices, the answer to your question is: {result}")
 
+    # Asking if the user wants to leave
     while True:
         try:
             done = input("Would you like to work a different equation? (y/n)").lower().strip()
