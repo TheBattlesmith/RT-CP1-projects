@@ -55,3 +55,5 @@ def neat (**kwargs):
 
 print(neat(data = "utah", type = "str"))
 print(neat(type = "float", data = "3.1415", decimals = 3))
+
+
