@@ -22,35 +22,59 @@ def equations(op, *args):
         product = math.prod(args[0])
         return product
 
-agreement = ["yes", "y", "yep"]
-plugin = []
-operations = ["sum","average","min","max", "product"]
-while True:
-    try:
-        numbers = float(input("What number would you like to add to your equation? "))
-    except:
-        print("That isn't a number.")
-    else:
-        plugin.append(numbers)
-        sofar = str(plugin)
-        print(f"So far, your numbers are ", (sofar))
-        done = input("\n\nWould you like to continue? (Y/N): \n\n").lower().strip()
-        if done not in agreement:
-            break
-
 
 while True:
-    try:
-        operation = input("What operation do you want to preform on your chosen numbers? \nSum\nAverage\nMax\nMin\nProduct\n\n").lower().strip()
-        if operation not in operations:
-            raise TypeError("that wasn't an option")
-    except:
-        print("that wasn't an option")
-    else:
-        if operation in operations:
+
+    # Lists for stupid proofing
+    agreement = ["yes", "y", "yep"]
+    operations = ["sum","average","min","max", "product"]
+    finished = ["yes", "y", "no", "n"]
+
+    # Lists for the inputed numbers
+    plugin = []
+
+
+    # While loop to get the desired numbers from user and stupid proof
+    while True:
+        try:
+            numbers = float(input("What number would you like to add to your equation? "))
+        except:
+            print("That isn't a number.")
+        else:
+            plugin.append(numbers)
+            sofar = str(plugin)
+            print(f"So far, your numbers are ", (sofar))
+            done = input("\n\nWould you like to continue? (Y/N): \n\n").lower().strip()
+            if done not in agreement:
+                break
+
+    # Stupid proof while loop to get the operation from the user
+    while True:
+        try:
+            operation = input("What operation do you want to preform on your chosen numbers? \nSum\nAverage\nMax\nMin\nProduct\n\n").lower().strip()
+            if operation not in operations:
+                raise TypeError("that wasn't an option")
+        except:
+            print("that wasn't an option")
+        else:
+            if operation in operations:
+                break
+
+    # Calling the function to get the values
+    result = equations(operation, plugin)
+
+    # Printing the final result
+    print(f"Based on your choices, the answer to your question is: {result}")
+
+    while True:
+        try:
+            done = input("Would you like to work a different equation? (y/n)").lower().strip()
+            if done not in finished:
+                raise TypeError("That wasn't an option.")
+        except:
+            print("That wasn't an option")
+        else:
             break
-
-
-result = equations(operation, plugin)
-
-print(f"Based on your choices, the answer to your question is: {result}")
+    if done == "no" or done == "n":
+        print("Okay, goodbye!")
+        break
