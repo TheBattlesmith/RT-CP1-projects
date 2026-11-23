@@ -2,24 +2,24 @@
 import math
 
 def equations(op, *args):
+
     if op == "sum":
-        added = sum(args)
+        added = sum(args[0])
         return added
     elif op == "average":
-        sum = 0
-        for i in args:
-            sum += i
-        total = sum/len(args)
+        num = 0
+        for i in args[0]:
+            num += i
+        total = num/len(args[0])
         return total
     elif op == "min":
-        print(args)
         minimum = min(args[0])
         return minimum
     elif op == "max":
-        maximum = max(args)
+        maximum = max(args[0])
         return maximum
     elif op == "product":
-        product = math.prod(args)
+        product = math.prod(args[0])
         return product
 
 agreement = ["yes", "y", "yep"]
